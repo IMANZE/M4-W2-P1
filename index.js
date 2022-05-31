@@ -1,6 +1,7 @@
 const card = document.querySelector("#myCard");
 const password = "563492ad6f9170000100000178fcda4f6ed54f2e90d18a5952425ec3";
 const loadImages = document.querySelector("#loadImages");
+const loadSecondaryImages = document.querySelector("#loadSecondaryImages");
 
 window.onload = () => {
   card;
@@ -56,6 +57,32 @@ window.onload = () => {
 
 loadImages.addEventListener("click", () => {
   const url = "https://api.pexels.com/v1/search?query=sea";
+
+  fetch(url, {
+    headers: {
+      Authorization: password,
+    },
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((body) => {
+      let cards = document.getElementsByClassName("card");
+
+      for (let i = 0; i < cards.length; i++) {
+        cards[i].firstElementChild.remove();
+        let img = document.createElement("img");
+        img.src = body.photos[i].src.large;
+        img.className = "bd-placeholder-img card-img-top";
+        img.style = "height: 200px; object-fit: cover";
+
+        cards[i].insertBefore(img, cards[i].firstChild);
+      }
+    });
+});
+
+loadSecondaryImages.addEventListener("click", () => {
+  const url = "https://api.pexels.com/v1/search?query=forest";
 
   fetch(url, {
     headers: {
