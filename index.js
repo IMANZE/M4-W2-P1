@@ -53,6 +53,11 @@ window.onload = () => {
           </div>
         </div>`;
   }
+ card
+  .querySelectorAll(".btn.btn-outline-secondary:nth-child(2)") 
+  .forEach((btn) => {
+    btn.innerText = "Hide";
+});
 };
 
 loadImages.addEventListener("click", () => {
