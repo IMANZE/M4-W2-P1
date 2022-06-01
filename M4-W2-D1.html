@@ -199,16 +199,34 @@
             them in a cool way!
           </p>
           <p>
-            <a href="#"  id="loadImages" class="btn btn-primary my-2">Load Images</a>
-            <a href="#" id="loadSecondaryImages" class="btn btn-secondary my-2">Load Secondary Images</a>
+            <a href="#" id="loadImages" class="btn btn-primary my-2"
+              >Load Images</a
+            >
+            <a href="#" id="loadSecondaryImages" class="btn btn-secondary my-2"
+              >Load Secondary Images</a
+            >
           </p>
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              oninput="handleSearchQuery(event)"
+            />
+            <div class="input-group-append">
+              <button
+                class="btn btn-outline-secondary"
+                type="button"
+                onclick="searchImages()"
+              >
+                Search
+              </button>
+            </div>
+          </div>
         </div>
       </section>
       <div class="album py-5 bg-light">
         <div class="container">
-          <div id="myCard" class="row row-cols-1 row-cols-md-3">
-           
-          </div>
+          <div id="myCard" class="row row-cols-1 row-cols-md-3"></div>
         </div>
       </div>
     </main>
