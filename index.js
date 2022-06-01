@@ -83,6 +83,7 @@ loadImages.addEventListener("click", () => {
         img.style = "height: 200px; object-fit: cover";
 
         cards[i].insertBefore(img, cards[i].firstChild);
+        cards[i].querySelector("small").innerText = "ID: " + body.photos[i].id;
       }
     });
 });
